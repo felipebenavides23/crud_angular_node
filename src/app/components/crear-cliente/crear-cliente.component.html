@@ -1,1 +1,113 @@
-<p>crear-cliente works!</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-4">
+      <div class="card">
+        <div class="card-header text-center">
+          <span class="titulo">CREAR PRODUCTO </span>
+        </div>
+        <div class="card-dody">
+          <form
+            action=""
+            class="mt-4 p-3"
+            [formGroup]="productoForm"
+            (ngSubmit)="agregarproducto()"
+          >
+            <div class="mb-3">
+              <label for="producto" class="form-label">Producto</label>
+              <input
+                type="text"
+                class="form-control"
+                id="producto"
+                formControlName="producto"
+              />
+              <div
+                class="text-danger"
+                *ngIf="
+                  productoForm.get('producto')?.hasError('required') &&
+                  productoForm.get('producto')?.touched
+                "
+              >
+                <span>el nombre del producto es obligatorio </span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="categoria" class="form-label">Categoria</label>
+              <input
+                type="text"
+                class="form-control"
+                id="categoria"
+                formControlName="categoria"
+              />
+              <div
+                class="text-danger"
+                *ngIf="
+                  productoForm.get('categoria')?.hasError('required') &&
+                  productoForm.get('categoria')?.touched
+                "
+              >
+                <span>la catecoria del producto es obligatorio </span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="ubicacion" class="form-label">Ubicacion</label>
+              <input
+                type="text"
+                class="form-control"
+                id="ubicacion"
+                formControlName="ubicacion"
+              />
+
+              <div
+                class="text-danger"
+                *ngIf="
+                  productoForm.get('ubicacion')?.hasError('required') &&
+                  productoForm.get('ubicacion')?.touched
+                "
+              >
+                <span>la ubicacion es obligatorio </span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="precio" class="form-label">Precio</label>
+              <input
+                type="number"
+                class="form-control"
+                id="precio"
+                formControlName="precio"
+              />
+              <div
+                class="text-danger"
+                *ngIf="
+                  productoForm.get('precio')?.hasError('required') &&
+                  productoForm.get('precio')?.touched
+                "
+              >
+                <span>precio del producto es obligatorio </span>
+              </div>
+            </div>
+
+            <div class="mg-4 col-4 offset-4">
+              <button
+                type="button"
+                class="btn btn-secondary me-3 btn-block"
+                routerLink="/"
+              >
+                VOLVER
+              </button>
+              <button
+                type="submit"
+                [disabled]="productoForm.invalid"
+                class="btn btn-success"
+              >
+                GUARDAR
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
